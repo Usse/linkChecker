@@ -1,0 +1,10 @@
+{
+  "name"        : "linkChecker",
+  "description" : "link checker",
+  "author"      : "Usse <andrea.usseglio@gmail.com>",
+  "dependencies" : {
+    "jsdom" : "*",
+    "request" : "*",
+    "colorize" : "*"
+  }
+}
