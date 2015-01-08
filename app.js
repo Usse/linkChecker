@@ -70,17 +70,22 @@ var app = {
     var request = require('request')
     //app.printFoundLinks();
     app.links.forEach(function(item) {
-      request(item, function (error, response, body) {
-        if (!error) {
-          if(response.statusCode == 200) {
-            colorize.console.log("#green[" + response.statusCode + "] - " + item + ""); 
+      if(item.indexOf('file:///') != -1) {
+        colorize.console.log("#blue[UNK] - " + item + "");
+      }else {
+        request(item, function (error, response, body) {
+          if (!error) {
+            if(response.statusCode == 200) {
+              colorize.console.log("#green[" + response.statusCode + "] - " + item + "");
+            } else {
+              colorize.console.log("#yellow[" + response.statusCode + "] - " + item + "");
+            }
           } else {
-            colorize.console.log("#yellow[" + response.statusCode + "] - " + item + "");   
-          } 
-        } else {
-          colorize.console.log("#red[ERR] - " + item + ""); 
-        }
-      })
+            colorize.console.log("#red[ERR] - " + item + "");
+          }
+        });
+      }
+
     }); 
   },
 
