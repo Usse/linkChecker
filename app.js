@@ -1,7 +1,7 @@
 var colorize = require('colorize');
 
 var app = {
-  version : '0.1',
+  version : '1.0',
   appName : 'app.js',
   links : [],
   isWeb : false,
@@ -68,7 +68,6 @@ var app = {
 
   doCalls : function() {
     var request = require('request')
-    //app.printFoundLinks();
     app.links.forEach(function(item) {
       if(item.indexOf('file:///') != -1) {
         colorize.console.log("#blue[UNK] - " + item + "");
@@ -99,8 +98,6 @@ var app = {
     }
   }
 
-
 }
-
 
 app.init();
